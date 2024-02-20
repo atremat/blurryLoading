@@ -29,6 +29,7 @@ body {
   font-weight: 400;
   font-style: normal;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0;
@@ -36,8 +37,6 @@ body {
 }
 
 .bg {
-  background: url('https://pixabay.com/get/gfb28dbbbd58312e584bdc253b7bb27c41d1a9c69001e5a0af1d2dc6494e835eca4543769d092cf649dbc3edeaba55197c53399d2179488728f6994500c177150_1280.jpg')
-    no-repeat center center/cover;
   position: absolute;
   top: -30px;
   left: -30px;
@@ -50,4 +49,17 @@ body {
 .loading-text {
   font-size: 50px;
   color: #fff;
+}
+
+.change-image-button {
+  background-color: transparent;
+  font-size: 50px;
+  color: #fff;
+  margin-top: 10px;
+  border: none;
+}
+
+.hidden {
+  display: none;
+  opacity: 0;
 }
