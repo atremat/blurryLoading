@@ -1,5 +1,5 @@
 import defaultImage from './img/valley.jpg'; //default image
-// import { getRandomImage } from './js/randomImageAPI'; //random image api
+import { getRandomImage } from './js/randomImageAPI'; //random image api
 
 const refs = {
   loadText: document.querySelector('.loading-text'),
@@ -17,7 +17,16 @@ async function changeImage() {
   load = 0;
   int = setInterval(blurring, TIMEOUT);
 
-  refs.bg.style.backgroundImage = `url(${defaultImage})`;
+  try {
+    const response = await getRandomImage();
+    if (!response.statusText == 'OK') {
+      refs.bg.style.backgroundImage = `url(${defaultImage})`;
+    } else {
+      refs.bg.style.backgroundImage = `url(${response.data})`;
+    }
+  } catch (e) {
+    refs.bg.style.backgroundImage = `url(${defaultImage})`;
+  }
 
   refs.bg.style.backgroundSize = 'cover';
   refs.bg.style.backgroundPosition = 'center';
